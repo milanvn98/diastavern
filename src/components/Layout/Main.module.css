@@ -1,0 +1,9 @@
+.outer-wrapper {
+    background: var(--smokey);
+    min-height: 100vh;
+    padding: 140px 40px;
+}
+
+.button-container {
+    text-align: center;
+}

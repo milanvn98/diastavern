@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
+    background: black;
+    width: 100vw;
+    position: fixed;
+    z-index: 99;
+}
+
+nav div {
+    flex: 1
+}
+
+.logo-container {
+    padding: 0 20px;
+}
+
+.logo {
+    width: 50%;
+}
+
+.title h1 {
+    color: white;
+    text-align: center;
+}
+
+.exits {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-size: 25px;
+    padding: 0 20px;
+}
+
+.exits i {
+    margin: 0 10px;
+    cursor: pointer;
+}
