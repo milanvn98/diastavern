@@ -22,7 +22,7 @@ const useHttp = () => {
         });
 
         try {
-          callback(response.data, response);
+         callback(response.data, response);
         } catch {
           throw new Error("Could not update all components. Please Refresh page.");
         }

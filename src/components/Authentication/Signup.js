@@ -28,7 +28,7 @@ const Signup = (props) => {
       setIsLoading(true);
       try {
         const response = await axios({
-          url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDgEY__7LsGJOiMIm9dXbYqAOoOVSOaOlM",
+          url: "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="  + process.env.REACT_APP_GOOGLE,
           method: "POST",
           data: JSON.stringify({
             email,

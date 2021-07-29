@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Portal from "./components/Authentication/Portal";
 import { useContext } from "react";
 import AuthContext from "./context/auth-context";
+require('dotenv').config()
 
 function App() {
   const auth_context = useContext(AuthContext);

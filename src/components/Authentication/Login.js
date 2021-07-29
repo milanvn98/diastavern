@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import AuthContext from "../../context/auth-context";
+require('dotenv').config()
 
 const Login = (props) => {
   const auth_ctx = useContext(AuthContext);
@@ -24,7 +25,7 @@ const Login = (props) => {
       setIsLoading(true);
       try {
         const response = await axios({
-          url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDgEY__7LsGJOiMIm9dXbYqAOoOVSOaOlM",
+          url: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + process.env.REACT_APP_GOOGLE,
           method: "POST",
           data: JSON.stringify({
             email,
