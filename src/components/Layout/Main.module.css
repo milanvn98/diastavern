@@ -1,9 +1,20 @@
 .outer-wrapper {
-    background: var(--smokey);
-    min-height: 100vh;
-    padding: 140px 40px;
+  background: var(--smokey);
+  min-height: 100vh;
+  padding: 140px 40px;
 }
 
 .button-container {
-    text-align: center;
+  text-align: center;
 }
+
+.nav {
+  padding-right: 40px;
+  width: 100vw;
+  margin-bottom: 40px;
+  font-family: var(--heading);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+

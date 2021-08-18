@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Portal from "./components/Authentication/Portal";
 import { useContext } from "react";
 import AuthContext from "./context/auth-context";
-require('dotenv').config()
+require("dotenv").config();
 
 function App() {
   const auth_context = useContext(AuthContext);
@@ -12,8 +12,14 @@ function App() {
   return (
     <>
       <Switch>
-        <Route path={"/admin"} exact>
-          {isLoggedIn ? <Admin /> : <Redirect to={"/login"} />}
+        <Route path={"/"} exact>
+        <Redirect to={"/food"} />
+        </Route>
+        <Route path={"/food"} exact>
+          {isLoggedIn ? <Admin path={"food"} /> : <Redirect to={"/login"} />}
+        </Route>
+        <Route path={"/drinks"} exact>
+          {isLoggedIn ? <Admin path={"drinks"} /> : <Redirect to={"/login"} />}
         </Route>
         <Route path="/login" exact>
           <Portal method={"login"}></Portal>

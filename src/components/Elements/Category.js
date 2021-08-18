@@ -4,9 +4,12 @@ import Table from "./Table";
 import useHttp from "../../hooks/useHTTP";
 import Button from "./Button";
 import DataContext from "../../context/data_context";
+import NavContext from "../../context/nav-context";
 
 const Category = (props) => {
   const data_ctx = useContext(DataContext);
+  const nav_ctx = useContext(NavContext);
+
   const item = props.item;
   const [expanded, setExpanded] = useState(true);
   const [category, setCategory] = useState("");
@@ -19,24 +22,34 @@ const Category = (props) => {
     setCategory(props.category);
   }, [props.category]);
 
-  const saveCatHandler = (e) => {
-    e.preventDefault();
-    const cat = data_ctx["categories"].find((cat) => cat["name"] === category.toLowerCase());
-    if (cat) {
-      alert("This category already exists. Please choose a different name.");
+  const saveHandler = () => {
+    let url = "categories";
+    if (nav_ctx.page === "food") {
+      const cat = data_ctx["categories"].find((cat) => cat["name"] === category.toLowerCase());
+      if (cat) {
+        alert("This category already exists. Please choose a different name.");
+        return;
+      }
     } else {
-      sendRequest(
-        {
-          url: "categories",
-          method: "POST",
-          body: { _id: item["_id"], name: category.toLowerCase() },
-        },
-        (response) => {
-          props.save(response);
-          setEdited(false);
-        }
-      );
+      url = "types";
+      const type = data_ctx["types"].find((typ) => typ["name"] === category.toLowerCase());
+      if (type) {
+        alert("This category already exists. Please choose a different name.");
+        return;
+      }
     }
+
+    sendRequest(
+      {
+        url,
+        method: "POST",
+        body: { _id: item["_id"], name: category.toLowerCase() },
+      },
+      (response) => {
+        props.save(response);
+        setEdited(false);
+      }
+    );
   };
 
   const deleteHandler = () => {
@@ -71,7 +84,7 @@ const Category = (props) => {
             }}
           ></input>
           {edited && (
-            <Button colour={"var(--gold)"} onClick={saveCatHandler}>
+            <Button colour={"var(--gold)"} onClick={saveHandler}>
               {isLoading ? <i className={`fa fa-spinner fa-spin fa-fw`}></i> : "SAVE"}
             </Button>
           )}

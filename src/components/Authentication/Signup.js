@@ -43,7 +43,7 @@ const Signup = (props) => {
         setIsLoading(false);
         const token = response["data"]["idToken"];
         auth_ctx.login(token);
-        history.replace('/admin')
+        history.replace('/food')
       } catch (error) {
         setIsLoading(false);
         if (error && error.response && error.response.data && error.response.data.error) {

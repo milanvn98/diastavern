@@ -1,6 +1,6 @@
 import styles from "./Portal.module.css";
 import useValidate from "../../hooks/useValidate";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import AuthContext from "../../context/auth-context";
@@ -39,7 +39,7 @@ const Login = (props) => {
         setIsLoading(false);
         const token = response["data"]["idToken"];
         auth_ctx.login(token);
-        history.replace("/admin");
+        history.replace("/food");
       } catch (error) {
         setIsLoading(false);
         if (error && error.response && error.response.data && error.response.data.error) {

@@ -5,12 +5,15 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { DataContextProvider } from "./context/data_context";
 import { AuthContextProvider } from "./context/auth-context";
+import { NavContextProvider } from "./context/nav-context";
 
 ReactDOM.render(
   <BrowserRouter>
     <AuthContextProvider>
       <DataContextProvider>
-        <App />
+        <NavContextProvider>
+          <App />
+        </NavContextProvider>
       </DataContextProvider>
     </AuthContextProvider>
   </BrowserRouter>,

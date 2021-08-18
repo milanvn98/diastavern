@@ -24,7 +24,6 @@ td:first-child {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background: transparent;
 }
 
 td:nth-child(2){
@@ -42,7 +41,7 @@ td:nth-child(5) {
     cursor: pointer;
 } 
 
-td:nth-child(6) {
+td:last-child {
   background-color: transparent;
   text-align: center;
   width: 60px;

@@ -13,7 +13,8 @@ const useHttp = () => {
 
       try {
         const response = await axios({
-          url: "https://diastavern.herokuapp.com/" + requestConfig.url + "?timestamp=" + new Date().getTime(),
+          url: process.env.REACT_APP_DOMAIN + requestConfig.url + "?timestamp=" + new Date().getTime(),
+          // url: "https://diastavern.herokuapp.com/" + requestConfig.url + "?timestamp=" + new Date().getTime(),
           method: requestConfig.method ? requestConfig.method : "GET",
           data: qs.stringify(requestConfig.body),
           headers: {
